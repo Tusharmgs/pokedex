@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pokemon Library</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div class="selectType">
+      <form>
+        <label>
+          Select Type
+          <select name="types" id="select"></select>
+        </label>
+
+        <label>
+          Pokemons Count
+          <input type="number" id="count" placeholder="Enter Count" required />
+        </label>
+
+        <input type="submit" value="Search" />
+      </form>
+    </div>
+
+    <svg class="hidden navigation" id="previous" width="40" height="40">
+      <!-- Left arrow icon -->
+      <polygon points="30,10 10,25 30,40" fill="black" />
+    </svg>
+
+    <div class="pokemon-card hidden"></div>
+
+    <svg class="hidden navigation" id="next" width="40" height="40">
+      <!-- Right arrow icon -->
+      <polygon points="10,10 30,25 10,40" fill="black" />
+    </svg>
+    <!-- MOVES MODAL -->
+    <div class="moves-modal hidden">
+      <div class="moves-box">
+        <h3 class="moves-title">Moves</h3>
+        <ul class="moves-list"></ul>
+        <button class="close-moves">Close</button>
+      </div>
+    </div>
+
+    <script src="./script.js"></script>
+  </body>
+</html>

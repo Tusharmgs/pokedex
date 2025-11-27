@@ -1,0 +1,328 @@
+
+      /* ===========================
+   GLOBAL
+=========================== */
+      * {
+        box-sizing: border-box;
+      }
+
+      .hidden {
+        display: none;
+      }
+
+      body {
+        background-color: #e5e5e5;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        font-family: "Poppins", sans-serif;
+      }
+
+      /* Default fallback Pokémon color */
+      :root {
+        --bg-color: #7fc8f8;
+      }
+
+      /* ===========================
+   TYPE COLORS
+=========================== */
+      .type-normal {
+        --bg-color: #a8a77a;
+      }
+      .type-fire {
+        --bg-color: #ee8130;
+      }
+      .type-water {
+        --bg-color: #6390f0;
+      }
+      .type-electric {
+        --bg-color: #f7d02c;
+      }
+      .type-grass {
+        --bg-color: #7ac74c;
+      }
+      .type-ice {
+        --bg-color: #96d9d6;
+      }
+      .type-fighting {
+        --bg-color: #c22e28;
+      }
+      .type-poison {
+        --bg-color: #a33ea1;
+      }
+      .type-ground {
+        --bg-color: #e2bf65;
+      }
+      .type-flying {
+        --bg-color: #a98ff3;
+      }
+      .type-psychic {
+        --bg-color: #f95587;
+      }
+      .type-bug {
+        --bg-color: #a6b91a;
+      }
+      .type-rock {
+        --bg-color: #b6a136;
+      }
+      .type-ghost {
+        --bg-color: #735797;
+      }
+      .type-dragon {
+        --bg-color: #6f35fc;
+      }
+      .type-dark {
+        --bg-color: #705746;
+      }
+      .type-steel {
+        --bg-color: #b7b7ce;
+      }
+      .type-fairy {
+        --bg-color: #d685ad;
+      }
+
+      /* ===========================
+   CARD
+=========================== */
+      .pokemon-card {
+        width: 280px;
+        padding-top: 25px;
+        margin: 10px 20px;
+
+        /* uses dynamic type color */
+        background: linear-gradient(180deg, var(--bg-color) 70%, #fff 30%);
+        border-radius: 24px;
+        overflow: hidden;
+        color: white;
+
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+        position: relative;
+        transition: background 0.3s ease-in-out;
+
+        min-height: 360px; /* prevents overflow when content grows */
+      }
+
+      /* ===========================
+   IMAGE
+=========================== */
+      .pokemon-image {
+        text-align: center;
+      }
+
+      .pokemon-image img {
+        width: 140px;
+        height: 140px;
+        object-fit: contain;
+        margin-top: -10px;
+        transition: transform 0.3s ease;
+      }
+
+      .pokemon-image img:hover {
+        transform: scale(1.08);
+      }
+
+      /* ===========================
+   INFO AREA
+=========================== */
+      .pokemon-info {
+        background: white;
+        color: #333;
+        padding: 16px;
+        border-radius: 24px 24px 0 0;
+      }
+
+      .pokemon-name {
+        text-align: center;
+        font-size: 1.5rem;
+        margin-bottom: 12px;
+        color: var(--bg-color);
+        font-weight: 700;
+        transition: 0.3s;
+      }
+
+      /* ===========================
+   STATS
+=========================== */
+      .pokemon-stats {
+        display: flex;
+        justify-content: space-around;
+        margin-bottom: 12px;
+      }
+
+      .value {
+        font-weight: 600;
+        font-size: 0.95rem;
+      }
+
+      .label {
+        font-size: 0.6rem;
+        color: #888;
+        text-align: center;
+      }
+
+      /* ===========================
+   FORM SECTION
+=========================== */
+      .selectType {
+        border: 2px solid #ddd;
+        border-radius: 10px;
+        width: 50%;
+        padding: 20px;
+        height: auto;
+        background: #fafafa;
+        box-shadow: 0px 0px 15px #eaeaea;
+      }
+
+      form {
+        display: flex;
+        flex-direction: column;
+        gap: 7px;
+        justify-content: center;
+        align-items: center;
+      }
+
+      form input,
+      form select {
+        width: 150px;
+        padding: 8px;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+      }
+
+      form label {
+        font-size: 0.9rem;
+      }
+
+      /* ===========================
+   BUTTONS
+=========================== */
+      .btnContainer {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+      }
+
+      .btn {
+        width: 100%;
+        background: var(--bg-color);
+        border: none;
+        border-radius: 12px;
+        color: white;
+        font-size: 1rem;
+        font-weight: 600;
+        padding: 10px 0;
+        cursor: pointer;
+        transition: 0.2s ease;
+      }
+
+      .btn:hover {
+        filter: brightness(0.88);
+      }
+
+      /* Search button (white) */
+      #search {
+        background-color: transparent;
+        color: black;
+        border: 2px solid var(--bg-color);
+      }
+
+      #search:hover {
+        background-color: var(--bg-color);
+        color: white;
+        box-shadow: 0px 0px 15px var(--bg-color);
+      }
+
+      /* Navigation buttons */
+      .navigation {
+        cursor: pointer;
+        user-select: none;
+      }
+
+      /* ===========================
+   RESPONSIVE
+=========================== */
+      @media (max-width: 480px) {
+        .pokemon-card {
+          width: 90%;
+        }
+
+        .selectType {
+          width: 80%;
+        }
+      }
+
+      /* ===========================
+   MOVES MODAL
+=========================== */
+.moves-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.55);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.moves-modal.hidden {
+  display: none;
+}
+
+.moves-box {
+  background: white;
+  width: 280px;
+  padding: 20px;
+  border-radius: 18px;
+  text-align: center;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+  animation: popup 0.25s ease;
+}
+
+@keyframes popup {
+  from { transform: scale(0.8); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+.moves-title {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--bg-color);
+  margin-bottom: 12px;
+}
+
+.moves-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 15px 0;
+  text-align: left;
+}
+
+.moves-list li {
+  padding: 6px 8px;
+  margin-bottom: 5px;
+  background: #f4f4f4;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  text-transform: capitalize;
+}
+
+.close-moves {
+  background: var(--bg-color);
+  color: white;
+  border: none;
+  padding: 10px;
+  width: 100%;
+  border-radius: 12px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.close-moves:hover {
+  filter: brightness(0.9);
+}
