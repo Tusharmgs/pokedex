@@ -19,7 +19,7 @@ Pokémon Type Explorer makes it easy to:
 * Switch back to type selection anytime
 
 This lightweight app runs directly in the browser with no backend required.
-
+Live Link - https://pokedex-liveapp.netlify.app/
 ---
 
 ## ✨ Features
